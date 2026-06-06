@@ -44,8 +44,10 @@ print(adwentures_of_tom_sawer)
 """
 
 print("Task 3")
-adwentures_of_tom_sawer = adwentures_of_tom_sawer.replace("   ", " ")
+splitted_text = adwentures_of_tom_sawer.split()
+adwentures_of_tom_sawer = ' '.join(splitted_text)
 print(adwentures_of_tom_sawer)
+
 
 # task 04
 """ Виведіть, скількі разів у тексті зустрічається літера "h"
@@ -67,9 +69,10 @@ print(f"The letter 'h' appears {count_of_h} times in the text.")
 
 print("Task 5")
 count_of_upper = 0
-for el in adwentures_of_tom_sawer:
-    if el[0].isupper() == True:
+for el in splitted_text:
+    if el[0].isupper():
         count_of_upper += 1
+
 print(f"The word that starts with letter in upper case appers {count_of_upper} times in the text.")
 
 # task 06
