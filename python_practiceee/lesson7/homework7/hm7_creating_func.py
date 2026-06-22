@@ -34,11 +34,11 @@ print(avg_of_list([1, 2, 3, 4, 5]))
 print("Task4", "_" * 30)
 
 
-def reverse_list(list1):
-    return sorted(list1, reverse=True)
+def reverse_line(line):
+    return line[::-1]
 
 
-print(reverse_list([1, 2, 3, 4, 5]))
+print(reverse_line("hello word"))
 
 print("Task5", "_" * 30)
 
@@ -65,7 +65,7 @@ str1 = "The quick brown fox jumps over the lazy dog"
 str2 = "cat"
 print(find_substring(str1, str2))
 
-print("Task7", "_" * 30, "count_uniq_symbols")
+print("Task7", "_" * 30, "check_uniq_symbols")
 
 
 # some_text = input("Enter some text: ")
@@ -77,12 +77,12 @@ print("Task7", "_" * 30, "count_uniq_symbols")
 # else:
 #     print(False)
 
-def count_uniq_symbols(some_text):
+def check_uniq_symbols(some_text):
     uniq_symbols = set(some_text)
     return True if len(uniq_symbols) > 10 else False
 
 
-print(count_uniq_symbols("lhbhvkfkdreswswa475d!"))
+print(check_uniq_symbols("lhbhvkfkdreswswa475d!"))
 
 print("Task8", "_" * 30, "wait_for_the_letter")
 
