@@ -12,7 +12,7 @@
 # result = point1 + point2
 # print(result.x, result.y)  # Виведе: 4 6
 
-# 20:49
+# 20:49 lesson 9
 
 class Classes:
     def __init__(self, **kwargs):
@@ -28,8 +28,9 @@ class Classes:
 
         for k, v in self.__dict__.items():
             result += f"{k} has students: {v['students']} starts at {v['start']}\n"
+            setattr(self, k, v)
 
-
+# 7:23 lesson10
 
 class_one = ({"math": {"students": 100, "start": "22.10.2020"}})
 print(class_one)

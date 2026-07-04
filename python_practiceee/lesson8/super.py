@@ -11,3 +11,8 @@ class Car(Vehicle):
 my_car = Car(color="Blue", model="Honda", wheels=4)
 another_car = Car(color="Red", model="Honda", wheels=4)
 print(my_car.wheels)  # Виведе "4"
+
+# super()
+# # викликаж клас супер не знає контексту, використовуємо дефолтно
+# super
+# # викликає вбудований метод
