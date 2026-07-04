@@ -22,8 +22,11 @@ class Rhombus:
             else:
                 super().__setattr__(key, value)
         elif key == "angle_a":
-            super().__setattr__(key, value)
-            super().__setattr__("angle_b", (180 - value))
+            if value <= 0:
+                print("angle_a must be > 0")
+            else:
+                super().__setattr__(key, value)
+                super().__setattr__("angle_b", (180 - value))
         elif key == "angle_b":
             print("angle_b is calculated automatically")
         else:
@@ -36,29 +39,31 @@ class Rhombus:
         #     else:
         #         super().__setattr__(key, value)
 
-r = Rhombus(5, 60)
+r = Rhombus(-5, 60)
+# r.len_a = -5
+
 print(r.len_a)
-print(r.angle_a)
-print(r.angle_b)
-r.angle_a = 100
-print(r.angle_a)
-print(r.angle_b)
-
-r = Rhombus(0, 60)
-
-
-
-r2 = Rhombus(5, 60)
-print(r2.len_a, r2.angle_a, r2.angle_b)
-
-r2.angle_a = 100
-print(r2.angle_a, r2.angle_b)
-
-r2.len_a = 10
-print(r2.len_a)
-
-r2.angle_b = 50
-print(r2.angle_a, r2.angle_b)
+# print(r.angle_a)
+# print(r.angle_b)
+# r.angle_a = 100
+# print(r.angle_a)
+# print(r.angle_b)
+#
+# r = Rhombus(0, 60)
+#
+#
+#
+# r2 = Rhombus(5, 60)
+# print(r2.len_a, r2.angle_a, r2.angle_b)
+#
+# r2.angle_a = 100
+# print(r2.angle_a, r2.angle_b)
+#
+# r2.len_a = 10
+# print(r2.len_a)
+#
+# r2.angle_b = 50
+# print(r2.angle_a, r2.angle_b)
 
 
 
