@@ -20,7 +20,9 @@ class Wagon:
         self.is_locomotive = is_locomotive
         # self.is_exception_passengers = True
         self.number = number
-        self.passengers = []
+        if not self.is_locomotive:
+            self.passengers = []
+
 
     def __len__(self):
         return len(self.passengers)
