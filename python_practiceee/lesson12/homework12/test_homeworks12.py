@@ -7,14 +7,12 @@ class FunctionTests(unittest.TestCase):
     def test_uniq_count_positive(self):
         test_data = "Would you tell me, please, which way I ought to go from here?"
         actual_result = uniq_count(test_data)
-        expected_result = True
-        self.assertEqual(expected_result, actual_result)
+        self.assertTrue(actual_result)
 
     def test_uniq_count_negative(self):
         test_data = "Hello world!"
         actual_result = uniq_count(test_data)
-        expected_result = False
-        self.assertEqual(expected_result, actual_result)
+        self.assertFalse(actual_result)
 
     def test_take_what_you_need_string(self):
         test_list = ["hello", False, "world", 88]
@@ -72,7 +70,8 @@ class FunctionTests(unittest.TestCase):
 
     def test_sum_even_numbers_negative_text(self):
         test_list = [89, 13, 11, "hello"]
-        self.assertRaises(TypeError, lambda: sum_even_numbers(test_list))
+        with self.assertRaises(TypeError):
+            sum_even_numbers(test_list)
 
     def test_wait_for_the_letter(self):
         test_letter = "w"
