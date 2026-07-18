@@ -7,4 +7,11 @@ def factorial(n):
     if n < 0:
         raise ValueError('n must be non-negative')
 
-    if type
+    if type(n) != int:
+        raise TypeError('n must be an integer')
+
+    if n == 0:
+        return 1
+
+    else:
+        return n * factorial(n-1)
