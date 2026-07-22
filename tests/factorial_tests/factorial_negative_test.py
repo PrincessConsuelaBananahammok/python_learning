@@ -10,7 +10,7 @@ print(config_file_path)
 logging.config.fileConfig(config_file_path)
 sys.path.insert(0, BASE_PROJECT_PATH)
 
-logger = logging.getLogger("root")
+logger = logging.getLogger("sampleLogger")
 
 from function import factorial
 
