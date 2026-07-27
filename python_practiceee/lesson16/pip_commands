@@ -1,0 +1,3 @@
+pip freeze - подивитись бібліотеки і їх версії встановлені на venv
+pip freeze > requirements.txt - записати наявні бібліотеки в файл requirements.txt
+pip install -r requirements.txt становити файл з бібліотеки
