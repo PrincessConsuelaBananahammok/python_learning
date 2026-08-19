@@ -3,6 +3,7 @@ import sys
 from constants import BASE_PROJECT_PATH
 import logging.config
 import os
+import pytest
 
 config_file_path = os.path.join(BASE_PROJECT_PATH, 'logging_config.ini')
 print(config_file_path)
@@ -17,6 +18,7 @@ from function import factorial
 
 class FactorialTests(unittest.TestCase):
 
+    @pytest.mark.negative
     def test_factorial_negative_number(self):
         expected_error_message = 'n must be non-negative'
         logger.info(f'We expect to get ValueError in this test with this message {expected_error_message}')
@@ -27,6 +29,7 @@ class FactorialTests(unittest.TestCase):
         pass
         self.assertEqual(expected_error_message, actual_error_message)
 
+    @pytest.mark.negative
     def test_factorial_not_number(self):
         with self.assertRaises(TypeError):
             logger.info(f'We expect to get TypeError in this test')

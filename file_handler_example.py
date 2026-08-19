@@ -1,6 +1,6 @@
 import logging
 
-file_handler = logging.FileHandler('tests/factorial_tests/error.log')
+file_handler = logging.FileHandler('tests/functions_tests/factorial_tests/error.log')
 file_handler.setLevel(logging.ERROR)
 file_formatter = logging.Formatter('Custom formater %(name)s - %(asctime)s - %(levelname)s - %(message)s')
 file_handler.setFormatter(file_formatter)
@@ -10,7 +10,7 @@ logging.basicConfig(level=logging.DEBUG,
                     format='%(asctime)s - %(lineno)d - %(levelname)s - %(message)s',
                     handlers=[
                         logging.StreamHandler(),  # Виведення в консоль
-                        logging.FileHandler('tests/factorial_tests/example.log'), # Запис у файл
+                        logging.FileHandler('tests/functions_tests/factorial_tests/example.log'), # Запис у файл
                         file_handler
                     ])
 
