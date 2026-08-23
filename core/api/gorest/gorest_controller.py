@@ -31,7 +31,8 @@ class GorestController(BasicController):
 
     def create_user(self, data):
         url = f"{self.url}users"
-        # return requests.post(url=url, data=data, headers={"Authorization": f"Bearer {self.get_token()}"})
+        # return self._execute_request(method="post", url=url, data=data,
+        #                                      headers={"Authorization": f"Bearer {self.token}"})
         return requests.post(url=url, data=data, headers={"Authorization": f"Bearer {self.get_token()}"})
 
 
