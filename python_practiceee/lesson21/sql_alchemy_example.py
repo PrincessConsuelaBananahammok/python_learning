@@ -5,8 +5,9 @@ from itertools import count
 from sqlalchemy import create_engine, func
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-from core.db.models.user_model import Base, ORMUser
+from core.db.models.user_model import ORMUser
 from faker import Faker
+from core.db.models.base import Base
 
 # # Базовий клас для визначення моделей даних
 # Base = declarative_base()
@@ -58,7 +59,12 @@ session.commit()
 
 
 # Видалення користувача
-user_3 = session.query(ORMUser).filter_by(id=3).first()
-session.delete(user_3)
+# user_3 = session.query(ORMUser).filter_by(id=3).first()
+# session.delete(user_3)
+
+retired_users = session.query(ORMUser).filter(ORMUser.age>60).all()
+for k in retired_users:
+    session.delete(k)
+
 session.commit()
 # Відповідає DELETE FROM users WHERE name='John';

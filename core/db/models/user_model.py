@@ -1,8 +1,7 @@
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
+from core.db.models.base import Base
 
-# Базовий клас для визначення моделей даних
-Base = declarative_base()
 
 # Визначення моделі даних (таблиці) за допомогою класу
 class ORMUser(Base):
