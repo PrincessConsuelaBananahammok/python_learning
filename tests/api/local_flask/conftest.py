@@ -38,6 +38,6 @@ def sql_lite_cursor():
 #     print("tearDown base_url fixture")
 
 # @pytest.fixture(scope="session")
-# def auth_headers(base_url):
+# def auth_headers(base_url): #тут в цій фікстурі прокидується інша фікстура
 #     token = requests.post(url=f'{base_url}/auth/', json={"name": "test", "password": "test"}).text
 #     return {"token": token}
