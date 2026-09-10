@@ -1,4 +1,11 @@
 import requests
+import pytest
+
+# @pytest.fixture(scope="session")
+# def base_url():
+#     print("setUP base_url fixture")
+#     yield "http://127.0.0.1:8080"
+#     print("tearDown base_url fixture")
 
 def test_get_students(base_url):
     response = requests.get(url=f'{base_url}/students/').json()

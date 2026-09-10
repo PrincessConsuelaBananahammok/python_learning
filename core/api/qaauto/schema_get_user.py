@@ -1,4 +1,6 @@
 #pip install marshmallow
+# lesson 23(десь в кінці), 24(15хвилина)
+
 from enum import Enum
 
 from marshmallow import Schema, fields
@@ -19,10 +21,10 @@ class CurrentSchema(Schema):
     data = fields.Nested(UserSchema)
     currency = fields.Str()
 
-# response = {'status': 'ok', 'data':
-#     {'userId': 390367,
-#      'currency': 'usd',
-#      'distanceUnits': 'km',
-#      'photoFilename': 'default-user.png'}}
-#
-# CurrentSchema().load(response)
+response = {'status': 'ok', 'data':
+    {'userId': 390367,
+     'currency': 'usd',
+     'distanceUnits': 'km',
+     'photoFilename': 'default-user.png'}}
+
+CurrentSchema().load(response)
