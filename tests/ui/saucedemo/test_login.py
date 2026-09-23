@@ -1,0 +1,67 @@
+from playwright.sync_api import sync_playwright, expect
+
+import pytest
+
+from core.pages.login_page import LoginPage
+
+
+# def test_login_positive(playwright):
+#     # with sync_playwright() as playwright:
+#         browser = playwright.chromium.launch(
+#             headless=False,
+#             args=["--start-maximized"]
+#         )
+#         context = browser.new_context(
+#             no_viewport=True
+#         )
+#         page = browser.new_page()
+#         page.goto("https://www.saucedemo.com")
+#         # page.wait_for_timeout(3000)
+#         username_locator = page.locator("//input[@placeholder='Username']")
+#         username_locator.fill("standard_user")
+#         # page.wait_for_timeout(3000)
+#         pass_locator = page.locator("#password")
+#         pass_locator.fill("secret_sauce")
+#         # page.wait_for_timeout(3000)
+#         page.get_by_role("button", name="Login").click()
+#         # page.wait_for_timeout(3000)
+#         logo_locator = page.locator(".app_logo")
+#         expect(logo_locator).to_be_visible()
+#         expect(page).to_have_title("Swag Labs")
+#         expect(page).to_have_url("https://www.saucedemo.com/inventory.html")
+#         # browser.close()
+
+
+#2
+@pytest.mark.ui
+def test_login_positive_second(page, login_page):
+    # with sync_playwright() as playwright:
+    #     browser = playwright.chromium.launch(
+    #         headless=False,
+    #         args=["--start-maximized"]
+    #     )
+    #     context = browser.new_context(
+    #         no_viewport=True
+    #     )
+    #     page = browser.new_page()
+    #     page.goto("https://www.saucedemo.com")
+    #     # page.wait_for_timeout(3000)
+    #     username_locator = page.locator("//input[@placeholder='Username']")
+    #     username_locator.fill("standard_user")
+    #     # page.wait_for_timeout(3000)
+    #     pass_locator = page.locator("#password")
+    #     pass_locator.fill("secret_sauce")
+    #     # page.wait_for_timeout(3000)
+    #     page.get_by_role("button", name="Login").click()
+    #     # page.wait_for_timeout(3000)
+
+
+
+        login_page.open()
+        inventory_page = login_page.login_valid_user("standard_user", "secret_sauce")
+        inventory_page.is_displayed()
+
+
+        # expect(page).to_have_title("Swag Labs")
+        # expect(page).to_have_url("https://www.saucedemo.com/inventory.html")
+        # browser.close()
