@@ -1,8 +1,8 @@
 # щоб запусти pytest, файл, клас та функція мають містити test в назві
 import pytest
 
-# from python_practiceee.lesson22 import test_functions
-#
+from python_practiceee.lesson22 import test_functions
+
 # class TestPrimePositive:
 #     def test_prime(self):
 #         primes_list = test_functions.find_primes(3)
