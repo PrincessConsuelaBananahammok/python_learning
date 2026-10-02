@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  pg_db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: homework_user
+      POSTGRES_PASSWORD: homework_password
+      POSTGRES_DB: homework_db
+    ports:
+      - "5433:5432"
+
+  app:
+    build:
+      context: .
+      dockerfile: db.Dockerfile
+    depends_on:
+      - pg_db
+    environment:
+      DB_HOST: pg_db
+      DB_PORT: 5432
+      DB_NAME: homework_db
+      DB_USER: homework_user
+      DB_PASSWORD: homework_password
