@@ -1,5 +1,6 @@
 import random
 
+import allure
 import requests
 from faker import Faker
 
@@ -7,7 +8,9 @@ from tests.api.local_flask.conftest import sql_lite_cursor
 
 faker = Faker()
 
-
+@allure.epic("API")
+@allure.feature("Local Flask feature")
+@allure.story("Create user")
 def test_create_user(flask_controller, sql_lite_cursor):
     # student = requests.post(url=f'{base_url}/students/',
     #                         json={"name": faker.name(), "score": 50}, headers=auth_headers)

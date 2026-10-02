@@ -3,74 +3,74 @@ import time
 
 import psycopg2
 
+def test_db():
+    time.sleep(10)
 
-time.sleep(10)
-
-conn = psycopg2.connect(
-    host=os.getenv("DB_HOST"),
-    dbname=os.getenv("DB_NAME"),
-    user=os.getenv("DB_USER"),
-    password=os.getenv("DB_PASSWORD"),
-    port=os.getenv("DB_PORT")
-)
-
-cursor = conn.cursor()
-
-print("Connected to the database!")
-
-
-cursor.execute("""
-    CREATE TABLE IF NOT EXISTS users (
-        id SERIAL PRIMARY KEY,
-        name VARCHAR(50),
-        age INTEGER
+    conn = psycopg2.connect(
+        host=os.getenv("DB_HOST"),
+        dbname=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        port=os.getenv("DB_PORT")
     )
-""")
 
-conn.commit()
+    cursor = conn.cursor()
+
+    print("Connected to the database!")
+
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS users (
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(50),
+            age INTEGER
+        )
+    """)
+
+    conn.commit()
 
 
 # INSERT
-cursor.execute("""
-    INSERT INTO users (name, age)
-    VALUES ('Naruto', 15)
-""")
+    cursor.execute("""
+        INSERT INTO users (name, age)
+        VALUES ('Naruto', 15)
+    """)
 
-conn.commit()
+    conn.commit()
 
-print("User inserted!")
+    print("User inserted!")
 
 
 # SELECT
-cursor.execute("SELECT * FROM users")
+    cursor.execute("SELECT * FROM users")
 
-users = cursor.fetchall()
+    users = cursor.fetchall()
 
-print("Users:", users)
+    print("Users:", users)
 
 
 # UPDATE
-cursor.execute("""
-    UPDATE users
-    SET age = 16
-    WHERE name = 'Naruto'
-""")
+    cursor.execute("""
+        UPDATE users
+        SET age = 16
+        WHERE name = 'Naruto'
+    """)
 
-conn.commit()
+    conn.commit()
 
-print("User updated!")
+    print("User updated!")
 
 
 # DELETE
-cursor.execute("""
-    DELETE FROM users
-    WHERE name = 'Naruto'
-""")
+    cursor.execute("""
+        DELETE FROM users
+        WHERE name = 'Naruto'
+    """)
 
-conn.commit()
+    conn.commit()
 
-print("User deleted!")
+    print("User deleted!")
 
 
-cursor.close()
-conn.close()
+    cursor.close()
+    conn.close()
