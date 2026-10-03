@@ -11,3 +11,13 @@ class RegistrationPage:
         self.password = page.locator("#signupPassword")
         self.re_enter_password = page.locator("#signupRepeatPassword")
         self.register_button = page.get_by_role("button", name="Register")
+
+    def fill_registration_form(self, data):
+        self.name.fill(data.name)
+        self.last_name.fill(data.last_name)
+        self.email.fill(data.email)
+        self.password.fill(data.password)
+        self.re_enter_password.fill(data.repeat_password)
+
+    def click_register(self):
+        self.register_button.click()
