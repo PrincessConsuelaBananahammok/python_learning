@@ -1,5 +1,6 @@
 import time
 
+import allure
 from playwright.sync_api import sync_playwright, expect
 
 import pytest
@@ -64,7 +65,9 @@ from core.pages.login_page import LoginPage
         # expect(page).to_have_url("https://www.saucedemo.com/inventory.html")
         # browser.close()
 
-
+@allure.epic("UI")
+@allure.feature("SauceDemo")
+@allure.story("Test login")
 @pytest.mark.ui
 def test_login_positive_second(login_page):
     login_page.open()
@@ -72,6 +75,9 @@ def test_login_positive_second(login_page):
     inventory_page.is_displayed()
     inventory_page.img_loaded()
 
+@allure.epic("UI")
+@allure.feature("SauceDemo")
+@allure.story("Test login")
 @pytest.mark.ui
 def test_login_click_enter(login_page):
     login_page.open()
@@ -80,6 +86,9 @@ def test_login_click_enter(login_page):
     inventory_page.img_loaded()
 
 
+@allure.epic("UI")
+@allure.feature("SauceDemo")
+@allure.story("Test login")
 @pytest.mark.parametrize(
     "test_data",
     INVALID_LOGIN_DATA

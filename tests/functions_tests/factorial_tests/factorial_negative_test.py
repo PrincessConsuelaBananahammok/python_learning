@@ -1,5 +1,8 @@
 import unittest
 import sys
+
+import allure
+
 from constants import BASE_PROJECT_PATH
 import logging.config
 import os
@@ -18,6 +21,7 @@ from function import factorial
 
 class FactorialTests(unittest.TestCase):
 
+    @allure.epic("Unit")
     @pytest.mark.negative
     def test_factorial_negative_number(self):
         expected_error_message = 'n must be non-negative'
@@ -29,6 +33,7 @@ class FactorialTests(unittest.TestCase):
         pass
         self.assertEqual(expected_error_message, actual_error_message)
 
+    @allure.epic("Unit")
     @pytest.mark.negative
     def test_factorial_not_number(self):
         with self.assertRaises(TypeError):

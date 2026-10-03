@@ -1,3 +1,4 @@
+import allure
 from playwright.sync_api import Page, expect
 
 from core.pages.base_page import BasePage
@@ -17,9 +18,11 @@ class LoginPage(BasePage):
     def is_displayed(self):
         expect(self.__login_credentials).to_be_visible()
 
+    @allure.step("Open base page")
     def open(self):
         self.page.goto(f"{settings.SAUCE_DEMO_BASE_URL}")
 
+    @allure.step("Do login")
     def login_valid_user(self, username, password):
         self.__username.fill(username)
         self.__password.fill(password)

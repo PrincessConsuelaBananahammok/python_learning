@@ -10,6 +10,7 @@
 #     -db
 #     -ui
 #     -unit
+import allure
 import pytest
 from python_practiceee.lesson22 import test_functions
 
@@ -17,6 +18,7 @@ from python_practiceee.lesson22 import test_functions
 @pytest.mark.smoke
 @pytest.mark.regression
 @pytest.mark.positive
+@allure.epic("Unit")
 def test_triangle_1_1_1():
     area = test_functions.triangle_area(1,1,1)
     print("test1")
@@ -30,6 +32,7 @@ import os
 @pytest.mark.triangle
 @pytest.mark.regression
 @pytest.mark.skipif(os.getenv("CURRENT_ENV", "Dev") == "Dev", reason="Flaky test, fix in progress")
+@allure.epic("Unit")
 def test_triangle_1_2_3():
     area = test_functions.triangle_area(1,2,3)
     print("test2")

@@ -1,14 +1,20 @@
 import time
 
+import allure
 from playwright.sync_api import expect
 
-
+@allure.epic("UI")
+@allure.feature("Demoqa")
+@allure.story("Test objects")
 def test_iframe(page):
     page.goto("https://demoqa.com/frames")
     frame = page.frame_locator("#frame1")
     expected_frame_text = frame.locator("#sampleHeading").inner_text()
     assert expected_frame_text == "This is a sample page"
 
+@allure.epic("UI")
+@allure.feature("Demoqa")
+@allure.story("Test objects")
 def test_tab(page):
     page.goto("https://demoqa.com/browser-windows")
     with page.context.expect_page() as second_page_context:
@@ -27,6 +33,9 @@ def test_tab(page):
     time.sleep(2)
     expect(second_page).to_have_url("https://demoqa.com/sample")
 
+@allure.epic("UI")
+@allure.feature("Demoqa")
+@allure.story("Test objects")
 def test_dialog(page):
     page.goto("https://demoqa.com/alerts")
     page.on("dialog", handle_dialog)
@@ -35,12 +44,18 @@ def test_dialog(page):
     # page.screenshot(path="screenshots/test_dialog.png")
     time.sleep(2)
 
+@allure.epic("UI")
+@allure.feature("Demoqa")
+@allure.story("Test objects")
 def test_dialog_failed(page):
     page.goto("https://demoqa.com/alerts")
     page.on("dialog", handle_dialog)
     page.locator("#promtButton").click()
     assert page.locator("#promptResult").inner_text() == "You entered failed"
 
+@allure.epic("UI")
+@allure.feature("Demoqa")
+@allure.story("Test objects")
 def test_dialog_failed_with_video(video_context):
     page = video_context.new_page()
     page.goto("https://demoqa.com/alerts")

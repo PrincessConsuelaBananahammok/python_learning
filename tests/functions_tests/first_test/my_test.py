@@ -1,4 +1,7 @@
 import unittest
+
+import allure
+
 from python_practiceee.lesson12.func import some_function
 
 def sum_two_numbers(a, b):
@@ -6,17 +9,20 @@ def sum_two_numbers(a, b):
 
 class MyTest(unittest.TestCase):
 
+    @allure.epic("Unit")
     def test_example(self):
         actual_result = sum_two_numbers(1, 2)
         expected_result = 4
         self.assertEqual(actual_result, expected_result)
 
+    @allure.epic("Unit")
     def test_example_second(self):
         actual_result = sum_two_numbers(1, 2)
         expected_result = 3
         self.assertEqual(expected_result, actual_result)
         # assert actual_result == expected_result
 
+    @allure.epic("Unit")
     def test_example_third(self):
         actual_result = [{"Name": "Alex", "Age": 18, "Position" : "QA"},
                          {"Name": "Den", "Age": 18, "Position" : "AQA"},
