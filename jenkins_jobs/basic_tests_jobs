@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/helber-fa/hillel_05_25_2026.git'
+                git branch: 'main', url: 'https://github.com/PrincessConsuelaBananahammok/python_learning.git'
             }
         }
         stage('Install venv') {
